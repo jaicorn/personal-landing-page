@@ -3,119 +3,758 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Justin Corneliusen — Landing Page Options</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Justin Corneliusen</title>
+    <meta name="description" content="Justin Corneliusen — Senior Business Analyst, AI architect, active trader, and real estate developer. 1,000+ businesses consulted across 49 states.">
+    <meta name="keywords" content="Justin Corneliusen, senior business analyst, AI development, genetic architecture, machine learning, crypto, equities, real estate development, business consulting">
+    <meta property="og:title" content="Justin Corneliusen">
+    <meta property="og:description" content="1,000+ businesses. 49 states. Four disciplines.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #09090b;
+            --bg-2: #0e0e12;
+            --text: #f4f4f6;
+            --text-2: #a1a1b0;
+            --text-3: #6a6a7e;
+            --accent: #c4a24e;
+            --accent-dim: rgba(196,162,78,0.07);
+            --border: rgba(255,255,255,0.05);
+            --border-2: rgba(255,255,255,0.08);
+            --radius: 0px;
+        }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background: #08080a;
-            color: #eee;
-            min-height: 100vh;
-            padding: 60px 24px;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            font-feature-settings: 'cv11', 'ss01';
         }
-        .container { max-width: 720px; margin: 0 auto; }
-        h1 {
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 8px;
+
+        ::selection { background: var(--accent); color: var(--bg); }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
         }
-        .subtitle {
-            font-size: 15px;
-            color: #888;
-            margin-bottom: 48px;
-            line-height: 1.6;
+
+        /* ─── NAV ─── */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            transition: all 0.4s;
         }
-        .card {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 16px;
-            background: rgba(255,255,255,0.02);
-            transition: all 0.3s;
+
+        .nav.scrolled {
+            background: rgba(9,9,11,0.92);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
         }
-        .card:hover {
-            border-color: rgba(201,164,74,0.3);
-            background: rgba(255,255,255,0.04);
-            transform: translateY(-2px);
+
+        .nav-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 22px clamp(24px,4vw,48px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .card-label {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #c9a44a;
-            margin-bottom: 10px;
-        }
-        .card h2 {
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-        .card p {
+
+        .nav-wordmark {
             font-size: 14px;
-            color: #888;
-            line-height: 1.6;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
-        .arrow {
-            float: right;
-            color: #555;
-            font-size: 20px;
+
+        .nav-wordmark span { color: var(--accent); }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-right a {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-3);
+            text-decoration: none;
             transition: color 0.3s;
         }
-        .card:hover .arrow { color: #c9a44a; }
-        .footer-note {
-            margin-top: 48px;
+
+        .nav-right a:hover { color: var(--text-2); }
+
+        .nav-contact {
+            color: var(--accent) !important;
+            padding: 8px 20px;
+            border: 1px solid rgba(196,162,78,0.2);
+            transition: all 0.3s !important;
+        }
+
+        .nav-contact:hover {
+            background: var(--accent-dim) !important;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 clamp(24px,4vw,48px);
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content {
+            padding: 120px 0 80px;
+        }
+
+        .hero-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-tag::before {
+            content: '';
+            width: 32px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 5.5vw, 64px);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin-bottom: 28px;
+        }
+
+        .hero-lede {
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--text-2);
+            line-height: 1.75;
+            max-width: 520px;
+            margin-bottom: 48px;
+        }
+
+        .hero-lede strong {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        /* Stats row */
+        .stats {
+            display: flex;
+            gap: 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat {
+            flex: 1;
+            padding: 24px 0;
+            border-right: 1px solid var(--border);
+        }
+
+        .stat:last-child { border-right: none; }
+
+        .stat-num {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-3);
+        }
+
+        /* Photo column */
+        .hero-photo {
+            position: relative;
+            height: 520px;
+            margin-top: 100px;
+        }
+
+        .photo-frame {
+            width: 100%;
+            height: 100%;
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: grayscale(15%) contrast(1.05);
+        }
+
+        .photo-frame::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 40%;
+            background: linear-gradient(to top, var(--bg), transparent);
+            pointer-events: none;
+        }
+
+        .photo-accent {
+            position: absolute;
+            bottom: -12px;
+            left: -12px;
+            width: 120px;
+            height: 120px;
+            border: 1px solid var(--accent);
+            opacity: 0.15;
+        }
+
+        /* ─── DIVIDER ─── */
+        .div-line {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 clamp(24px,4vw,48px);
+        }
+
+        .div-line-inner {
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--border) 30%, var(--border) 70%, transparent 100%);
+        }
+
+        /* ─── DISCIPLINES ─── */
+        .disciplines {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: clamp(80px,10vw,140px) clamp(24px,4vw,48px);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-3);
+        }
+
+        .section-header-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            margin-left: 24px;
+        }
+
+        /* Card grid */
+        .d-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .d-card {
+            background: var(--bg);
+            padding: clamp(36px,4vw,56px);
+            position: relative;
+            transition: background 0.4s;
+        }
+
+        .d-card:hover {
+            background: var(--bg-2);
+        }
+
+        /* Accent top border on hover */
+        .d-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 0;
+            height: 1px;
+            transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .d-card:hover::before { width: 100%; }
+
+        .d-card:nth-child(1)::before { background: var(--accent); }
+        .d-card:nth-child(2)::before { background: #6494ed; }
+        .d-card:nth-child(3)::before { background: #3dd99a; }
+        .d-card:nth-child(4)::before { background: #e8924a; }
+
+        .d-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 28px;
+        }
+
+        .d-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-3);
+            letter-spacing: 1px;
+        }
+
+        .d-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .di-1 { background: var(--accent); box-shadow: 0 0 12px rgba(196,162,78,0.4); }
+        .di-2 { background: #6494ed; box-shadow: 0 0 12px rgba(100,148,237,0.4); }
+        .di-3 { background: #3dd99a; box-shadow: 0 0 12px rgba(61,217,154,0.4); }
+        .di-4 { background: #e8924a; box-shadow: 0 0 12px rgba(232,146,74,0.4); }
+
+        .d-card h3 {
+            font-size: 21px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+        }
+
+        .d-card p {
+            font-size: 14px;
+            font-weight: 350;
+            color: var(--text-2);
+            line-height: 1.75;
+            margin-bottom: 24px;
+        }
+
+        .d-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .d-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.5px;
+            color: var(--text-3);
+            padding: 5px 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .d-card:hover .d-tag {
+            border-color: var(--border-2);
+            color: var(--text-2);
+        }
+
+        /* ─── APPROACH ─── */
+        .approach {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 clamp(24px,4vw,48px) clamp(80px,10vw,140px);
+        }
+
+        .approach-inner {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 80px;
+            align-items: start;
+            padding-top: clamp(60px,8vw,100px);
+        }
+
+        .approach-label {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-3);
+            padding-top: 6px;
+        }
+
+        .approach-text {
+            font-size: 22px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-2);
+        }
+
+        .approach-text strong {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        /* ─── CONTACT ─── */
+        .contact {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 clamp(24px,4vw,48px) clamp(80px,10vw,140px);
+        }
+
+        .contact-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--border);
+        }
+
+        .contact-left {
+            padding: clamp(40px,5vw,72px);
+            border-right: 1px solid var(--border);
+        }
+
+        .contact-left h2 {
+            font-size: clamp(28px,3.5vw,42px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .contact-left p {
+            font-size: 15px;
+            font-weight: 350;
+            color: var(--text-2);
+            line-height: 1.7;
+        }
+
+        .contact-right {
+            padding: clamp(40px,5vw,72px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .contact-item-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-3);
+        }
+
+        .contact-item a {
+            font-size: 15px;
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover { color: var(--accent); }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            align-self: flex-start;
+            gap: 10px;
             font-size: 12px;
-            color: #555;
-            text-align: center;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--bg);
+            background: var(--accent);
+            padding: 15px 32px;
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 28px rgba(196,162,78,0.25);
+        }
+
+        .contact-btn svg {
+            width: 13px; height: 13px;
+            stroke: var(--bg); fill: none; stroke-width: 2.5;
+        }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 24px clamp(24px,4vw,48px);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer span {
+            font-size: 11px;
+            color: var(--text-3);
+        }
+
+        .footer a {
+            font-size: 11px;
+            color: var(--text-3);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover { color: var(--accent); }
+
+        /* ─── ANIMATIONS ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .reveal.vis { opacity: 1; transform: translateY(0); }
+
+        .rd1 { transition-delay: 0.04s; }
+        .rd2 { transition-delay: 0.1s; }
+        .rd3 { transition-delay: 0.16s; }
+        .rd4 { transition-delay: 0.22s; }
+
+        .fi {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: fUp 0.85s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+
+        .fi1 { animation-delay: 0.08s; }
+        .fi2 { animation-delay: 0.2s; }
+        .fi3 { animation-delay: 0.35s; }
+        .fi4 { animation-delay: 0.5s; }
+        .fi5 { animation-delay: 0.65s; }
+
+        @keyframes fUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                min-height: auto;
+            }
+            .hero-photo {
+                height: 360px;
+                margin-top: 0;
+            }
+            .d-grid { grid-template-columns: 1fr; }
+            .approach-inner { grid-template-columns: 1fr; gap: 24px; }
+            .contact-inner { grid-template-columns: 1fr; }
+            .contact-left { border-right: none; border-bottom: 1px solid var(--border); }
+            .nav-right { gap: 20px; }
+            .footer { flex-direction: column; gap: 10px; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { letter-spacing: -1px; }
+            .hero-photo { height: 300px; }
+            .stat { padding: 20px 0; }
+            .stat-num { font-size: 22px; }
+            .nav-contact { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Landing Page Options</h1>
-        <p class="subtitle">Click any version to view it. Send the links to anyone for feedback.</p>
 
-        <a href="version-a.html" class="card">
-            <span class="arrow">&rarr;</span>
-            <div class="card-label">Version A</div>
-            <h2>Editorial & Luxury</h2>
-            <p>Playfair Display serif font. Split-screen hero, scrolling keyword marquee, row-based layout with gold accent bars on hover.</p>
-        </a>
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <div class="nav-wordmark">Justin<span>C</span></div>
+            <ul class="nav-right">
+                <li><a href="#disciplines">Disciplines</a></li>
+                <li><a href="#contact" class="nav-contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <a href="version-b.html" class="card">
-            <span class="arrow">&rarr;</span>
-            <div class="card-label">Version B</div>
-            <h2>Modern Tech Founder</h2>
-            <p>Space Grotesk bold font. Centered hero, subtle grid background, bento grid cards with glassmorphism and color-coded pills.</p>
-        </a>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-tag fi">Based in the U.S.</div>
+            <h1 class="fi fi1">Justin<br>Corneliusen</h1>
+            <p class="hero-lede fi fi2">
+                I advise businesses, build AI systems, trade public markets, and develop real estate. Each discipline informs the others. That's the edge.
+            </p>
+            <div class="stats fi fi3">
+                <div class="stat">
+                    <div class="stat-num">1,000+</div>
+                    <div class="stat-label mono">Businesses</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">49</div>
+                    <div class="stat-label mono">States</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">$1M–500M</div>
+                    <div class="stat-label mono">Client Revenue</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-photo fi fi4">
+            <div class="photo-frame">
+                <img src="headshot.jpg" alt="Justin Corneliusen" loading="eager">
+            </div>
+            <div class="photo-accent"></div>
+        </div>
+    </section>
 
-        <a href="version-c.html" class="card">
-            <span class="arrow">&rarr;</span>
-            <div class="card-label">Version C</div>
-            <h2>Premium Executive</h2>
-            <p>EB Garamond serif. Italic gold accents, Roman numeral watermarks, ambient orbs, monospace labels, centered quote section.</p>
-        </a>
-
-        <a href="version-d.html" class="card">
-            <span class="arrow">&rarr;</span>
-            <div class="card-label">Version D — New</div>
-            <h2>Research-Informed Best-Of</h2>
-            <p>Built from 50+ CEO/executive site analysis. Cormorant Garamond + JetBrains Mono. Transparent-to-solid sticky nav, stat bar (1,000+ / 49 / $500M), 2x2 expertise grid, film grain, pill CTAs.</p>
-        </a>
-
-        <a href="version-e.html" class="card">
-            <span class="arrow">&rarr;</span>
-            <div class="card-label">Version E — Latest</div>
-            <h2>VC-Grade &middot; Sharp Copy</h2>
-            <p>Built from your feedback: quietly powerful, VC aesthetic, data-forward. Inter + JetBrains Mono. Headshot placeholder, split contact, sticky nav, zero fluff copywriting. Every sentence earns its spot.</p>
-        </a>
-
-        <p class="footer-note">&copy; 2026 Justin Corneliusen</p>
+    <div class="div-line">
+        <div class="div-line-inner"></div>
     </div>
+
+    <section class="disciplines" id="disciplines">
+        <div class="section-header reveal">
+            <h2>Disciplines</h2>
+            <div class="section-header-line"></div>
+        </div>
+
+        <div class="d-grid">
+            <div class="d-card reveal rd1">
+                <div class="d-card-head">
+                    <span class="d-num mono">01</span>
+                    <span class="d-indicator di-1"></span>
+                </div>
+                <h3>Business Consulting</h3>
+                <p>Senior analyst at a national firm. I've walked the floor of over 1,000 businesses across 49 states — from $1M shops to $500M enterprises. I find what's broken, what's costing you money, and what to do about it.</p>
+                <div class="d-tags">
+                    <span class="d-tag">Operations</span>
+                    <span class="d-tag">Tax Strategy</span>
+                    <span class="d-tag">Valuations</span>
+                    <span class="d-tag">Exit Planning</span>
+                </div>
+            </div>
+
+            <div class="d-card reveal rd2">
+                <div class="d-card-head">
+                    <span class="d-num mono">02</span>
+                    <span class="d-indicator di-2"></span>
+                </div>
+                <h3>Artificial Intelligence</h3>
+                <p>I design and build genetic architecture systems, autonomous agent pipelines, and production ML workflows. Not theoretical — deployed, iterating, and compounding.</p>
+                <div class="d-tags">
+                    <span class="d-tag">Genetic Architecture</span>
+                    <span class="d-tag">Autonomous Agents</span>
+                    <span class="d-tag">LLM Integration</span>
+                </div>
+            </div>
+
+            <div class="d-card reveal rd3">
+                <div class="d-card-head">
+                    <span class="d-num mono">03</span>
+                    <span class="d-indicator di-3"></span>
+                </div>
+                <h3>Trading & Markets</h3>
+                <p>Active across crypto and equities. I trade with a systematic, quantitative approach — the same way I think about everything else: find the signal, build the system, execute with discipline.</p>
+                <div class="d-tags">
+                    <span class="d-tag">Cryptocurrency</span>
+                    <span class="d-tag">Equities</span>
+                    <span class="d-tag">Quantitative Analysis</span>
+                </div>
+            </div>
+
+            <div class="d-card reveal rd4">
+                <div class="d-card-head">
+                    <span class="d-num mono">04</span>
+                    <span class="d-indicator di-4"></span>
+                </div>
+                <h3>Real Estate Development</h3>
+                <p>I develop, acquire, and manage a portfolio of short and long-term rentals. Every property is a business — I treat it that way from site selection through revenue optimization.</p>
+                <div class="d-tags">
+                    <span class="d-tag">Development</span>
+                    <span class="d-tag">Short-Term Rentals</span>
+                    <span class="d-tag">Long-Term Rentals</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="div-line">
+        <div class="div-line-inner"></div>
+    </div>
+
+    <section class="approach">
+        <div class="approach-inner reveal">
+            <div class="approach-label">Approach</div>
+            <p class="approach-text">
+                I don't compartmentalize. The pattern recognition from analyzing a thousand businesses sharpens how I build AI. The discipline of trading sharpens how I evaluate real estate. <strong>Everything compounds when the systems talk to each other.</strong>
+            </p>
+        </div>
+    </section>
+
+    <div class="div-line">
+        <div class="div-line-inner"></div>
+    </div>
+
+    <section class="contact" id="contact">
+        <div class="contact-inner reveal">
+            <div class="contact-left">
+                <h2>Let's<br>connect.</h2>
+                <p>Open to strategic conversations, partnerships, and ventures worth building.</p>
+            </div>
+            <div class="contact-right">
+                <div class="contact-item">
+                    <span class="contact-item-label mono">Email</span>
+                    <a href="mailto:justinc@jscenterprises.com">justinc@jscenterprises.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-item-label mono">LinkedIn</span>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener">View Profile</a>
+                </div>
+                <a href="mailto:justinc@jscenterprises.com" class="contact-btn">
+                    Send a Message
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <span>&copy; 2026 Justin Corneliusen</span>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+    </footer>
+
+    <script>
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+
 </body>
 </html>
