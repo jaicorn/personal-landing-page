@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Corneliusen</title>
+    <meta name="description" content="Justin Corneliusen — Senior Business Analyst, AI developer, active trader, and real estate developer.">
+    <meta name="keywords" content="Justin Corneliusen, senior business analyst, AI development, genetic architecture, machine learning, crypto, equities, real estate development, short-term rentals, business consulting">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #06060a;
+            --text: #f0f0f0;
+            --muted: #62627a;
+            --gold: #c9a44a;
+            --blue: #5b8def;
+            --green: #34d399;
+            --orange: #f59e42;
+            --border: rgba(255,255,255,0.06);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ─── GRID BG ─── */
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 100%);
+        }
+
+        .page { position: relative; z-index: 1; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            padding: 28px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--gold); }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        /* ─── HERO ─── */
+        .hero {
+            padding: 80px 0 60px;
+            position: relative;
+            text-align: center;
+        }
+
+        /* Glow behind name */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            width: 700px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(201,164,74,0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(48px, 8vw, 90px);
+            font-weight: 700;
+            letter-spacing: -3px;
+            line-height: 1;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .hero h1 .name-accent {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 .name-accent::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            opacity: 0.4;
+            border-radius: 3px;
+        }
+
+        .hero-sub {
+            font-size: 16px;
+            color: var(--muted);
+            max-width: 440px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .hero-pills {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding: 10px 22px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .hero-pill:hover {
+            color: var(--text);
+            border-color: rgba(255,255,255,0.12);
+            transform: translateY(-2px);
+        }
+
+        .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .pill-dot-gold { background: var(--gold); }
+        .pill-dot-blue { background: var(--blue); }
+        .pill-dot-green { background: var(--green); }
+        .pill-dot-orange { background: var(--orange); }
+
+        /* ─── DIVIDER ─── */
+        .sep {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+        }
+
+        /* ─── BENTO GRID ─── */
+        .bento-section {
+            padding: 80px 0;
+        }
+
+        .bento-section-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .bento {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 16px;
+        }
+
+        .bento-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.4s ease;
+        }
+
+        .bento-card:hover { transform: translateY(-4px); }
+
+        /* Gradient border */
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(160deg, var(--card-accent, var(--gold)), transparent 50%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.3;
+            transition: opacity 0.4s;
+        }
+
+        .bento-card:hover::before { opacity: 0.7; }
+
+        .bento-inner {
+            background: rgba(255,255,255,0.025);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 44px 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background glow */
+        .bento-inner::before {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .bento-card:hover .bento-inner::before { opacity: 1; }
+
+        .card-1 { --card-accent: var(--gold); }
+        .card-1 .bento-inner::before { background: rgba(201,164,74,0.08); top: -30%; right: -20%; }
+        .card-2 { --card-accent: var(--blue); }
+        .card-2 .bento-inner::before { background: rgba(91,141,239,0.08); top: -30%; right: -20%; }
+        .card-3 { --card-accent: var(--green); }
+        .card-3 .bento-inner::before { background: rgba(52,211,153,0.08); top: -30%; right: -20%; }
+        .card-4 { --card-accent: var(--orange); }
+        .card-4 .bento-inner::before { background: rgba(245,158,66,0.08); top: -30%; right: -20%; }
+
+        .bento-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .bento-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .bento-icon-gold { background: rgba(201,164,74,0.1); }
+        .bento-icon-blue { background: rgba(91,141,239,0.1); }
+        .bento-icon-green { background: rgba(52,211,153,0.1); }
+        .bento-icon-orange { background: rgba(245,158,66,0.1); }
+
+        .bento-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .bento-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+        }
+
+        .bento-card p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.75;
+            flex: 1;
+        }
+
+        .bento-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 28px;
+        }
+
+        .bento-tag {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            padding: 5px 12px;
+            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* ─── CONTACT ─── */
+        .contact {
+            padding: 80px 0 120px;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 300px;
+            background: radial-gradient(ellipse, rgba(201,164,74,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .contact p {
+            color: var(--muted);
+            font-size: 15px;
+            margin-bottom: 36px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--bg);
+            background: var(--gold);
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 12px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 24px rgba(201,164,74,0.2);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(201,164,74,0.35);
+        }
+
+        .contact-btn svg {
+            width: 14px; height: 14px;
+            stroke: var(--bg); fill: none; stroke-width: 2.5;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            padding: 28px 0;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer span, footer a { font-size: 12px; color: var(--muted); }
+        footer a { text-decoration: none; transition: color 0.3s; }
+        footer a:hover { color: var(--gold); }
+
+        /* ─── ANIMATIONS ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .rd1 { transition-delay: 0.05s; }
+        .rd2 { transition-delay: 0.15s; }
+        .rd3 { transition-delay: 0.25s; }
+        .rd4 { transition-delay: 0.35s; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+        .fd1 { animation-delay: 0.1s; }
+        .fd2 { animation-delay: 0.25s; }
+        .fd3 { animation-delay: 0.45s; }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            .hero { padding: 60px 0 40px; }
+            .hero h1 { letter-spacing: -1.5px; }
+            .bento { grid-template-columns: 1fr; }
+            .nav-links { gap: 20px; }
+            footer { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+
+    <div class="page">
+
+        <div class="container">
+            <nav>
+                <div class="logo">Justin<span>C</span></div>
+                <ul class="nav-links">
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="container">
+            <section class="hero">
+                <h1 class="fade-in">Justin <span class="name-accent">Corneliusen</span></h1>
+                <p class="hero-sub fade-in fd1">Operator, builder, and investor working across consulting, AI, public markets, and real estate.</p>
+                <div class="hero-pills fade-in fd2">
+                    <div class="hero-pill"><span class="pill-dot pill-dot-gold"></span> Consulting</div>
+                    <div class="hero-pill"><span class="pill-dot pill-dot-blue"></span> AI Development</div>
+                    <div class="hero-pill"><span class="pill-dot pill-dot-green"></span> Trading</div>
+                    <div class="hero-pill"><span class="pill-dot pill-dot-orange"></span> Real Estate</div>
+                </div>
+            </section>
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="container" id="work">
+            <section class="bento-section">
+                <div class="bento-section-label">What I Do</div>
+                <div class="bento">
+
+                    <div class="bento-card card-1 reveal rd1">
+                        <div class="bento-inner">
+                            <div class="bento-icon bento-icon-gold">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#c9a44a" stroke-width="1.5" stroke-linecap="round">
+                                    <rect x="3" y="13" width="3" height="7" rx="0.5" />
+                                    <rect x="8" y="9" width="3" height="11" rx="0.5" />
+                                    <rect x="13" y="5" width="3" height="15" rx="0.5" />
+                                    <rect x="18" y="2" width="3" height="18" rx="0.5" />
+                                </svg>
+                            </div>
+                            <div class="bento-num">01</div>
+                            <h3>Senior Business Analyst</h3>
+                            <p>Over 1,000 businesses consulted on-site across 49 states, with client revenues from $1M to $500M. Advising on operations, strategic tax planning, valuations, and exit strategy at a national consulting firm.</p>
+                            <div class="bento-tags">
+                                <span class="bento-tag">Analytics</span>
+                                <span class="bento-tag">Tax Strategy</span>
+                                <span class="bento-tag">Operations</span>
+                                <span class="bento-tag">Valuations</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bento-card card-2 reveal rd2">
+                        <div class="bento-inner">
+                            <div class="bento-icon bento-icon-blue">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#5b8def" stroke-width="1.5" stroke-linecap="round">
+                                    <circle cx="12" cy="5" r="2" />
+                                    <circle cx="5" cy="12" r="2" />
+                                    <circle cx="19" cy="12" r="2" />
+                                    <circle cx="7" cy="20" r="2" />
+                                    <circle cx="17" cy="20" r="2" />
+                                    <line x1="12" y1="7" x2="5" y2="10" />
+                                    <line x1="12" y1="7" x2="19" y2="10" />
+                                    <line x1="5" y1="14" x2="7" y2="18" />
+                                    <line x1="19" y1="14" x2="17" y2="18" />
+                                    <line x1="5" y1="14" x2="17" y2="18" />
+                                    <line x1="19" y1="14" x2="7" y2="18" />
+                                </svg>
+                            </div>
+                            <div class="bento-num">02</div>
+                            <h3>AI Development</h3>
+                            <p>Building genetic architecture systems, autonomous agent frameworks, and applied ML pipelines. Specializing in evolutionary optimization and large language model integration.</p>
+                            <div class="bento-tags">
+                                <span class="bento-tag">Genetic Architecture</span>
+                                <span class="bento-tag">Autonomous Agents</span>
+                                <span class="bento-tag">ML</span>
+                                <span class="bento-tag">LLMs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bento-card card-3 reveal rd3">
+                        <div class="bento-inner">
+                            <div class="bento-icon bento-icon-green">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.5" stroke-linecap="round">
+                                    <line x1="6" y1="6" x2="6" y2="19" />
+                                    <rect x="4.5" y="9" width="3" height="6" rx="0.5" />
+                                    <line x1="12" y1="4" x2="12" y2="17" />
+                                    <rect x="10.5" y="6" width="3" height="7" rx="0.5" fill="rgba(52,211,153,0.15)" />
+                                    <line x1="18" y1="8" x2="18" y2="21" />
+                                    <rect x="16.5" y="12" width="3" height="5" rx="0.5" />
+                                </svg>
+                            </div>
+                            <div class="bento-num">03</div>
+                            <h3>Trading & Markets</h3>
+                            <p>Active across cryptocurrency and equity markets. Systematic, quantitative approach to both digital assets and traditional securities.</p>
+                            <div class="bento-tags">
+                                <span class="bento-tag">Crypto</span>
+                                <span class="bento-tag">Equities</span>
+                                <span class="bento-tag">Quantitative</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bento-card card-4 reveal rd4">
+                        <div class="bento-inner">
+                            <div class="bento-icon bento-icon-orange">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#f59e42" stroke-width="1.5" stroke-linecap="round">
+                                    <rect x="3" y="10" width="8" height="11" rx="1" />
+                                    <rect x="11" y="4" width="10" height="17" rx="1" />
+                                    <rect x="5.5" y="12.5" width="2" height="2" rx="0.3" opacity="0.5" />
+                                    <rect x="5.5" y="16" width="2" height="2" rx="0.3" opacity="0.5" />
+                                    <rect x="14" y="7" width="2" height="2" rx="0.3" opacity="0.5" />
+                                    <rect x="14" y="11" width="2" height="2" rx="0.3" opacity="0.5" />
+                                    <rect x="14" y="15" width="2" height="2" rx="0.3" opacity="0.5" />
+                                    <rect x="17.5" y="7" width="2" height="2" rx="0.3" opacity="0.5" />
+                                    <rect x="17.5" y="11" width="2" height="2" rx="0.3" opacity="0.5" />
+                                </svg>
+                            </div>
+                            <div class="bento-num">04</div>
+                            <h3>Real Estate Development</h3>
+                            <p>Developing, acquiring, and managing a portfolio of short-term and long-term rental properties. End-to-end from site selection and renovation to revenue optimization.</p>
+                            <div class="bento-tags">
+                                <span class="bento-tag">Development</span>
+                                <span class="bento-tag">STR</span>
+                                <span class="bento-tag">LTR</span>
+                                <span class="bento-tag">Portfolio</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="container" id="contact">
+            <section class="contact reveal">
+                <h2>Let's Connect</h2>
+                <p>Open to new conversations, ventures, and collaborations.</p>
+                <a href="mailto:justinc@jscenterprises.com" class="contact-btn">
+                    Get in Touch
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </section>
+        </div>
+
+        <div class="container">
+            <footer>
+                <span>&copy; 2026 Justin Corneliusen</span>
+                <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            </footer>
+        </div>
+
+    </div>
+
+    <script>
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Corneliusen</title>
+    <meta name="description" content="Justin Corneliusen — Senior Business Analyst, AI developer, active trader, and real estate developer.">
+    <meta name="keywords" content="Justin Corneliusen, senior business analyst, AI development, genetic architecture, machine learning, crypto, equities, real estate development, short-term rentals, business consulting">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0c0c0e;
+            --text: #eaeaea;
+            --muted: #6b6b78;
+            --accent: #c9a44a;
+            --accent-light: #e4cc82;
+            --border: rgba(255,255,255,0.05);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            padding: 32px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-right a {
+            font-size: 13px;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-right a:hover { color: var(--text); }
+
+        .nav-email {
+            font-size: 12px;
+            color: var(--accent) !important;
+            border: 1px solid rgba(201,164,74,0.3);
+            padding: 8px 20px;
+            border-radius: 100px;
+            transition: all 0.3s !important;
+        }
+
+        .nav-email:hover {
+            background: rgba(201,164,74,0.08) !important;
+            color: var(--accent-light) !important;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            padding: 100px 0 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: end;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-left h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(52px, 6vw, 72px);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -1px;
+        }
+
+        .hero-left h1 .first { color: var(--text); display: block; }
+        .hero-left h1 .last {
+            display: block;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-right {
+            padding-bottom: 10px;
+        }
+
+        .hero-right p {
+            font-size: 16px;
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .hero-roles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .role-pill {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding: 8px 18px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            transition: all 0.3s;
+        }
+
+        .role-pill:hover {
+            color: var(--text);
+            border-color: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.03);
+        }
+
+        /* ─── MARQUEE ─── */
+        .marquee-wrap {
+            padding: 28px 0;
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .marquee {
+            display: flex;
+            gap: 64px;
+            animation: scroll 30s linear infinite;
+            width: max-content;
+        }
+
+        .marquee span {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            color: var(--muted);
+            white-space: nowrap;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .marquee .dot {
+            color: var(--accent);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ─── DOMAINS ─── */
+        .domains {
+            padding: 100px 0;
+        }
+
+        .domain-row {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 60px;
+            padding: 56px 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            transition: all 0.4s;
+        }
+
+        .domain-row:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .domain-row::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 0;
+            width: 3px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.5s ease;
+        }
+
+        .domain-row:hover::before {
+            height: 100%;
+        }
+
+        .domain-row:hover {
+            padding-left: 20px;
+        }
+
+        .domain-left {
+            position: relative;
+        }
+
+        .domain-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.04);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .domain-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .domain-right h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        .domain-right p {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.8;
+            max-width: 520px;
+            margin-bottom: 20px;
+        }
+
+        .domain-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .domain-keywords span {
+            font-size: 12px;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 0.5px;
+        }
+
+        .domain-keywords span::before {
+            content: '— ';
+            color: var(--accent);
+            opacity: 0.5;
+        }
+
+        /* ─── CONTACT ─── */
+        .contact-section {
+            padding: 100px 0 120px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-section p {
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--bg);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 100px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 30px rgba(201,164,74,0.2);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(201,164,74,0.3);
+        }
+
+        .contact-btn svg {
+            width: 14px; height: 14px;
+            stroke: var(--bg); fill: none; stroke-width: 2.5;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            padding: 28px 0;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer span, footer a {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        footer a {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover { color: var(--accent); }
+
+        /* ─── ANIMATIONS ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-d1 { transition-delay: 0.1s; }
+        .reveal-d2 { transition-delay: 0.2s; }
+        .reveal-d3 { transition-delay: 0.3s; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+        .fd1 { animation-delay: 0.1s; }
+        .fd2 { animation-delay: 0.25s; }
+        .fd3 { animation-delay: 0.4s; }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 60px 0 60px;
+            }
+            .domain-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .domain-num { font-size: 36px; }
+            .nav-right { gap: 20px; }
+            footer { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">JC</div>
+            <ul class="nav-right">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact" class="nav-email">justinc@jscenterprises.com</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-left">
+                <h1>
+                    <span class="first fade-in">Justin</span>
+                    <span class="last fade-in fd1">Corneliusen</span>
+                </h1>
+            </div>
+            <div class="hero-right fade-in fd2">
+                <p>Strategist and builder operating across business consulting, artificial intelligence, financial markets, and real estate development.</p>
+                <div class="hero-roles">
+                    <span class="role-pill">Senior Analyst</span>
+                    <span class="role-pill">AI Developer</span>
+                    <span class="role-pill">Trader</span>
+                    <span class="role-pill">Developer</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="marquee-wrap">
+        <div class="marquee">
+            <span>Business Analytics</span><span class="dot">&bull;</span>
+            <span>Genetic Architecture</span><span class="dot">&bull;</span>
+            <span>Tax Strategy</span><span class="dot">&bull;</span>
+            <span>Machine Learning</span><span class="dot">&bull;</span>
+            <span>Crypto & Equities</span><span class="dot">&bull;</span>
+            <span>Real Estate Development</span><span class="dot">&bull;</span>
+            <span>Autonomous Agents</span><span class="dot">&bull;</span>
+            <span>Operations</span><span class="dot">&bull;</span>
+            <span>LLM Integration</span><span class="dot">&bull;</span>
+            <span>Short-Term Rentals</span><span class="dot">&bull;</span>
+            <!-- duplicate for seamless loop -->
+            <span>Business Analytics</span><span class="dot">&bull;</span>
+            <span>Genetic Architecture</span><span class="dot">&bull;</span>
+            <span>Tax Strategy</span><span class="dot">&bull;</span>
+            <span>Machine Learning</span><span class="dot">&bull;</span>
+            <span>Crypto & Equities</span><span class="dot">&bull;</span>
+            <span>Real Estate Development</span><span class="dot">&bull;</span>
+            <span>Autonomous Agents</span><span class="dot">&bull;</span>
+            <span>Operations</span><span class="dot">&bull;</span>
+            <span>LLM Integration</span><span class="dot">&bull;</span>
+            <span>Short-Term Rentals</span><span class="dot">&bull;</span>
+        </div>
+    </div>
+
+    <div class="container" id="work">
+        <section class="domains">
+
+            <div class="domain-row reveal">
+                <div class="domain-left">
+                    <div class="domain-num">01</div>
+                    <div class="domain-label">Consulting</div>
+                </div>
+                <div class="domain-right">
+                    <h3>Senior Business Analyst</h3>
+                    <p>Advising small to medium-sized businesses at a national consulting firm. Over 1,000 businesses consulted on-site across 49 states, with client revenues ranging from $1M to $500M. Driving operational efficiency, strategic tax planning, and business valuations across manufacturing, construction, food service, retail, and wholesale.</p>
+                    <div class="domain-keywords">
+                        <span>Business Analytics</span>
+                        <span>Tax Strategy</span>
+                        <span>Operations</span>
+                        <span>Exit Planning</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="domain-row reveal reveal-d1">
+                <div class="domain-left">
+                    <div class="domain-num">02</div>
+                    <div class="domain-label">AI</div>
+                </div>
+                <div class="domain-right">
+                    <h3>Artificial Intelligence</h3>
+                    <p>Architecting genetic algorithm systems, autonomous agent frameworks, and production-grade machine learning pipelines. Building at the intersection of evolutionary optimization, multi-agent orchestration, and large language model integration.</p>
+                    <div class="domain-keywords">
+                        <span>Genetic Architecture</span>
+                        <span>Autonomous Agents</span>
+                        <span>Machine Learning</span>
+                        <span>LLM Integration</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="domain-row reveal reveal-d2">
+                <div class="domain-left">
+                    <div class="domain-num">03</div>
+                    <div class="domain-label">Markets</div>
+                </div>
+                <div class="domain-right">
+                    <h3>Trading & Markets</h3>
+                    <p>Actively trading cryptocurrency and equity markets with a quantitative, systematic approach to both digital assets and traditional securities.</p>
+                    <div class="domain-keywords">
+                        <span>Cryptocurrency</span>
+                        <span>Equities</span>
+                        <span>Quantitative Analysis</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="domain-row reveal reveal-d3">
+                <div class="domain-left">
+                    <div class="domain-num">04</div>
+                    <div class="domain-label">Real Estate</div>
+                </div>
+                <div class="domain-right">
+                    <h3>Real Estate Development</h3>
+                    <p>Developing and managing a portfolio of short-term and long-term rental properties. Overseeing acquisition, renovation, and revenue optimization from the ground up.</p>
+                    <div class="domain-keywords">
+                        <span>Development</span>
+                        <span>Short-Term Rentals</span>
+                        <span>Long-Term Rentals</span>
+                        <span>Portfolio Management</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <div class="container" id="contact">
+        <section class="contact-section reveal">
+            <h2>Let's talk.</h2>
+            <p>Always open to thoughtful conversations and new ventures.</p>
+            <a href="mailto:justinc@jscenterprises.com" class="contact-btn">
+                Get in Touch
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </section>
+    </div>
+
+    <div class="container">
+        <footer>
+            <span>&copy; 2026 Justin Corneliusen</span>
+            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        </footer>
+    </div>
+
+    <script>
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+
+</body>
+</html>
