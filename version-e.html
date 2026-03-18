@@ -212,17 +212,14 @@
             border: 1px solid var(--border);
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .photo-placeholder {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-3);
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: grayscale(15%) contrast(1.05);
         }
 
         .photo-frame::after {
@@ -626,7 +623,7 @@
         </div>
         <div class="hero-photo fi fi4">
             <div class="photo-frame">
-                <span class="photo-placeholder">Your photo here</span>
+                <img src="headshot.jpg" alt="Justin Corneliusen" loading="eager">
             </div>
             <div class="photo-accent"></div>
         </div>
